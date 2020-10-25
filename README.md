@@ -273,7 +273,14 @@ x_target_environment = 'X-Target-Environment'
 authorization = 'Authorization'
 x_callback_url = 'X-Callback-Url'
 body = RequestToPay()
-
+body.amount = '50'
+body.currency = 'K'
+body.external_id = '123'
+body.payer = Party()
+body.payer.party_id_type = PartyIdTypeEnum.MSISDN
+body.payer.party_id = '0965058568'
+body.payer_message = 'sucssess'
+body.payee_note = 'not'
 client_controller.create_requesttopay_post(x_reference_id, x_target_environment, authorization, x_callback_url, body)
 
 ```
